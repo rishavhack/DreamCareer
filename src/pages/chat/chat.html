@@ -1,0 +1,82 @@
+<!--
+  Generated template for the ChatPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="danger">
+    <ion-title>Chat</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<style>
+
+ion-content{
+	background : url('img/chatImage.jpg') center / cover ;
+}
+
+
+</style>
+<ion-content padding>
+<!-- <div class="row" >
+    <div class="col-xs-12 sections chatarea">
+        <div class="chat-messages">
+           <div *ngFor="let c in chats" class="chat-gap">
+                <div class="chat-left row" *ngIf="user!=c.user">
+                    <div class="chat-content col-xs-4">
+                        {{c.text}}
+                    </div>
+                </div>
+                <div class="chat-right row" *ngIf="user==c.user">
+                    <div class="chat-content col-xs-4 col-xs-offset-6">
+                        {{c.text}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>  -->
+<div *ngFor="let c of chats">
+  
+	  <span *ngIf="chatNumber==1" style="border: 2px solid #fff6f6;padding: 10px 40px;background: palegoldenrod;border-radius: 25px;float: right;">
+	  			{{c}}
+	 </span > 
+	 <span *ngIf="chatNumber==0">
+	  			{{c}}
+	 </span> 
+</div> 
+
+</ion-content>
+<ion-footer>
+    <ion-grid>
+        <ion-row style="background-color: transparent;">
+        <ion-col col-9  style="background-color: white;border: 1px solid white;border-radius: 37px;">
+            <ion-input type="text" placeholder="Start typing..." [(ngModel)]="chatInput"></ion-input>
+        </ion-col>
+        <ion-col col-3 align-self-end>
+        <ion-buttons end (click)="enterMessage(chatInput)" style="border-radius: 12px;">
+            <button ion-button icon-only>
+            	<ion-icon ios="ios-send" md="md-send"></ion-icon>
+            </button>
+            </ion-buttons>
+        </ion-col></ion-row>
+    </ion-grid>
+
+</ion-footer> 
+<!-- <ion-footer>
+  <ion-toolbar>
+    <div>
+        <ion-input type="text" placeholder="Start typing..." [(ngModel)]="chatInput"></ion-input>
+    </div>
+    <ion-buttons end>
+      <button ion-button icon-right color="royal" (click)="enterMessage(chatInput)">
+        Send
+        <ion-icon name="send"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>
+ -->

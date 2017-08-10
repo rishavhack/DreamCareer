@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-navbar color="danger">
+  <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Home</ion-title>
+    <ion-buttons end (click)="logUserOut()">
+    <button ion-button icon-only>
+      <ion-icon ios="ios-person" md="md-person"></ion-icon>
+    </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-slides pager="true" loop="true" zoom="true" autoplay="true" style="height: 155px;margin-top: -7px;">
+
+        <ion-slide>
+            <img src="img/2.jpg">
+        </ion-slide>
+        <ion-slide>
+            <img src="img/5.jpg">
+        </ion-slide>
+        <ion-slide>
+            <img src="img/mind_magic_india.jpg">
+        </ion-slide>
+
+    </ion-slides>
+  
+
+
+
+
+</ion-content>
+<ion-fab right bottom  style="margin-bottom: 57px;margin-right: 10px;" (click)="chatBot()">
+    <button ion-fab style="color:white;background-color:red;">
+        <ion-icon ios="ios-chatboxes" md="md-chatboxes"></ion-icon>
+    </button>
+
+</ion-fab>

@@ -1,0 +1,67 @@
+<!--
+  Generated template for the NewsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="danger">
+    <ion-title>News</ion-title>
+  </ion-navbar>
+
+</ion-header>
+<style>
+
+ion-content{
+	background : url('img/29.jpg') center / cover ;
+}
+
+
+</style>
+
+<ion-content>
+	 <ion-list> 
+	  <ion-item style="background: transparent;color: red;cursor:pointer;"(click)="gotoNewsList('toi')">
+	    <ion-thumbnail item-start>
+	      <img src="img/news/toi.jpg">
+	    </ion-thumbnail>
+	    <h2>The Times of India </h2>
+	    <button ion-button clear item-end>View</button>
+	  </ion-item>
+
+	  <ion-item style="background: transparent;color: red;cursor:pointer;"(click)="gotoNewsList('th')">
+	    <ion-thumbnail item-start>
+	      <img src="img/news/TheHindu-Logo.png">
+	    </ion-thumbnail>
+	    <h2>The Hindu</h2>
+	    <button ion-button clear item-end>View</button>
+	  </ion-item>
+	  
+
+	  <ion-item style="background: transparent;color: red;cursor:pointer;"(click)="gotoNewsList('mtv')">
+	    <ion-thumbnail item-start>
+	      <img src="img/news/mtv.jpg">
+	    </ion-thumbnail>
+	    <h2>MTV News</h2>
+	    <button ion-button clear item-end>View</button>
+	  </ion-item>
+	  
+	   <ion-item style="background: transparent;color: red;cursor:pointer;"(click)="gotoNewsList('hack')">
+	    <ion-thumbnail item-start>
+	      <img src="img/news/hackernews.png">
+	    </ion-thumbnail>
+	    <h2>Hacker News</h2>
+	    <button ion-button clear item-end>View</button>
+	  </ion-item>
+
+	   <ion-item style="background: transparent;color: red;cursor:pointer;"(click)="gotoNewsList('espn')">
+	    <ion-thumbnail item-start>
+	      <img src="img/news/espn.png">
+	    </ion-thumbnail>
+	    <h2>ESPN News</h2>
+	    <button ion-button clear item-end>View</button>
+	  </ion-item>
+</ion-list>
+
+</ion-content>

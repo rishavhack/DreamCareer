@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-navbar color="danger">
+    <ion-title>
+      Quiz Contest
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+<style>
+
+ion-content{
+	background : url('img/29.jpg') center / cover ;
+}
+
+</style>
+<ion-content>
+<!-- <ion-searchbar hideCancelButton="false" (ionInput)="getItems()" [showCancelButton]="true" [(ngModel)]="query" placeholder="Search your Expertise">
+</ion-searchbar> -->
+<div  style="text-align: center;font-size: 147px;color: red;">
+<ion-icon ios="ios-school" md="md-school"></ion-icon>
+</div>
+  <p>
+    Quiz Contest helps you to improve your personality, provides elaborate knowledge to students 
+  </p>
+<ion-list padding>
+	<ion-item *ngFor="let item of subjectList" style="background-color: transparent;margin: 5px;padding-left: 0px;border: 1px solid red;cursor: pointer;border-radius: 17px;" (click)="getSubjectList(item.lists)" >
+	  <button style="background-color: transparent;font-weight: bold;font-size: 20px;color:red;">
+	  <ion-icon ios="ios-book" md="md-book" style="font-size: 23px;margin-right: 7px;"></ion-icon>{{item.lists}} 
+	  </button>
+	  <ion-icon name="arrow-forward" style="float: right;color: red;"></ion-icon>
+	</ion-item>
+</ion-list>
+</ion-content>
