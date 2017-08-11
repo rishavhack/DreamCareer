@@ -1,20 +1,47 @@
 <ion-header>
-  <ion-navbar color="danger">
-    <ion-title>
-      Profile
-    </ion-title>
-  </ion-navbar>
+    <ion-navbar color="danger">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+        <ion-title>Profile</ion-title>
+        <ion-buttons end>
+            <button ion-button (click)="updateProfile()">
+             <ion-icon name="checkmark" style="font-size: 40px;"></ion-icon>
+            </button>
+        </ion-buttons>
+    </ion-navbar>
 </ion-header>
+<style>
 
+ion-content{
+  background : url('img/29.jpg') center / cover ;
+}
+
+</style>
 <ion-content>
-<div text-center  style="position: relative;background: -webkit-linear-gradient(left, rgb(255, 0, 0) , rgba(230, 230, 78, 0.93));padding: 12px;">
-    <img style="border-radius: 50%;width:137px;height:124px;margin-top: 10px;" src="img/background.jpg">
+<div style="border-bottom: 2px solid red;border-radius: 47px;">
+<div text-center  style="position: relative;padding: 12px;">
+    <img style="border-radius: 50%;width:137px;height:124px;margin-top: 10px;" [src]="photoUrl" alt="Profile Pic">
             
 </div>  
 <div class="edit" style="position: absolute;top: 24%;right: 33%;text-align: center;margin: 0 auto;width: 24px;height: 24px;line-height: 24px;border-radius: 50%;background: #fff;color: #1da1f2;">
-     <ion-icon (click)="presentActionSheet();" name="create"></ion-icon>
-        </div>
-  
-<ion-input type="text" [(ngModel)]="name"></ion-input>
-<button (click)="submit(name)">submit</button>
+     <ion-icon (click)="uploadPhoto();" name="create"></ion-icon>
+</div>
+</div>
+
+<ion-list>
+
+  <ion-label fixed  style="color:red;margin-left:10px;">First Name</ion-label>
+    <ion-input type="text" value="" style="border : 1px solid red;border-radius: 15px;" [(ngModel)]="firstName"></ion-input>
+ 
+    <ion-label fixed style="color:red;margin-left:10px;">Last Name</ion-label>
+    <ion-input type="text" value="" style="border : 1px solid red;border-radius: 15px;" [(ngModel)]="lastName"></ion-input>
+
+    <ion-label fixed style="color:red;margin-left:10px;">Phone Number</ion-label>
+    <ion-input type="tel" value="" style="border : 1px solid red;border-radius: 15px;" [(ngModel)]="phoneNumber"></ion-input>
+
+    <ion-label fixed style="color:red;margin-left:10px;">Email</ion-label>
+    <ion-input type="email" value="" style="border : 1px solid red;border-radius: 15px;" [(ngModel)]="email"></ion-input>
+
+</ion-list>
 </ion-content>

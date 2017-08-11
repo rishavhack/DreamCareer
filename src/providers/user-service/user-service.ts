@@ -20,8 +20,7 @@ export class UserServiceProvider {
   constructor(public http: Http) {
   	this.fireAuth = firebase.auth();
   	this.userProfile = firebase.database().ref('users');
-   /* this.uidKey = firebase.auth().currentUser.uid;
-    this.emailFire = firebase.auth().currentUser.email;*/
+   
   }
   googleSignInUser()
   {
@@ -42,7 +41,7 @@ export class UserServiceProvider {
           username : user.displayName,
           name:{
                 first : res[0],
-                middle: res[1],
+                last: res[1],
                 },
         });
       }
@@ -67,7 +66,6 @@ export class UserServiceProvider {
   }
   submitDetail(name:string)
   {
-   console.log(name);
     return this.userProfile.child(this.uidKey).set({
           name:name,
           email :this.emailFire,

@@ -19,7 +19,10 @@ import { NewsPage } from '../pages/news/news';
 import { UserServiceProvider } from '../providers/user-service/user-service';
 import { ChatPage } from '../pages/chat/chat';
 import { AngularFireModule } from 'angularfire2';
+ 
+import { Camera, CameraOptions } from '@ionic-native/camera';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { UserDetailProvider } from '../providers/user-detail/user-detail';
 
 export const firebaseConfig = {
     apiKey: "AIzaSyDAaE7s5uZFHSW71i0CT0lbELwXWilRVz8",
@@ -69,7 +72,9 @@ export const firebaseConfig = {
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    UserServiceProvider
+    UserServiceProvider,
+    UserDetailProvider,
+    Camera
   ],
   
 })
