@@ -7,12 +7,14 @@
 </ion-header>
 
 <ion-content>
- <ion-card style="margin:0px;">
-  <ion-card-header >
-    My Account
-  </ion-card-header>
-  <ion-card-content>
-    The British use the term "header", but the American term "head-shot" the English simply refuse to adopt.
-  </ion-card-content>
-</ion-card>
+<div text-center  style="position: relative;background: -webkit-linear-gradient(left, rgb(255, 0, 0) , rgba(230, 230, 78, 0.93));padding: 12px;">
+    <img style="border-radius: 50%;width:137px;height:124px;margin-top: 10px;" src="img/background.jpg">
+            
+</div>  
+<div class="edit" style="position: absolute;top: 24%;right: 33%;text-align: center;margin: 0 auto;width: 24px;height: 24px;line-height: 24px;border-radius: 50%;background: #fff;color: #1da1f2;">
+     <ion-icon (click)="presentActionSheet();" name="create"></ion-icon>
+        </div>
+  
+<ion-input type="text" [(ngModel)]="name"></ion-input>
+<button (click)="submit(name)">submit</button>
 </ion-content>

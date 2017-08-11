@@ -14,10 +14,14 @@ export class UserServiceProvider {
 	private data : any;
 	public fireAuth : any;
 	public userProfile : any;
+  public uidKey :any
+  public emailFire :any
 
   constructor(public http: Http) {
   	this.fireAuth = firebase.auth();
   	this.userProfile = firebase.database().ref('users');
+   /* this.uidKey = firebase.auth().currentUser.uid;
+    this.emailFire = firebase.auth().currentUser.email;*/
   }
   googleSignInUser()
   {
@@ -26,7 +30,6 @@ export class UserServiceProvider {
 
     var that =this;
     return firebase.auth().signInWithPopup(provider).then(function(result){
-
       if(result.user)
       {
         console.log(result);
@@ -49,16 +52,26 @@ export class UserServiceProvider {
   }
   signUpUser(email :string , password:string)
   {
+    this.emailFire = email;
   	return this.fireAuth.createUserWithEmailAndPassword(email,password).
   	then((newUser)=>{
   		//sign in the user
   		this.fireAuth.signInWithEmailAndPassword(email,password).then((authenticatedUser)=>{
   			//successful login,create user profile
   			this.userProfile.child(authenticatedUser.uid).set({
-  				email:email
-  			})
+  				email:email,
+
+  			});
   		})
   	})
+  }
+  submitDetail(name:string)
+  {
+   console.log(name);
+    return this.userProfile.child(this.uidKey).set({
+          name:name,
+          email :this.emailFire,
+        });
   }
   loginUser(email:string,password:string):any{
   	return this.fireAuth.signInWithEmailAndPassword(email,password);
