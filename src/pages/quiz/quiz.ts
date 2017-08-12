@@ -18,8 +18,13 @@ import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/databa
 })
 export class QuizPage {
 	public subjectName :any;
-	public questionList
+	public questionList;
+	public optionNumber :any;
 	public number :any;
+	public rightAnswer = 0;
+	public wrongAnswer = 0;
+	public totalQuestion :any;
+	public showResult = true;
 
   constructor(public loadingController: LoadingController,public navCtrl: NavController, public navParams: NavParams,public http: Http,db: AngularFireDatabase) {
   		this.number = 0;
@@ -33,7 +38,7 @@ export class QuizPage {
   			db.list(this.subjectName)
 		.subscribe(data => {
 			this.questionList = data;
-		    console.log("Data is : ",data);
+			this.totalQuestion = this.questionList.length;
 		loader.dismiss();
 		},
 		(ex) => {
@@ -45,6 +50,36 @@ export class QuizPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad QuizPage');
+  }
+  nextQuestion(txt)
+  {
+  	if(txt != "")
+  	{
+	  	if(txt == this.questionList[this.number].answer)
+	  	{
+	  		this.rightAnswer++
+	  	}
+	  	else
+	  	{
+	  		this.wrongAnswer++;
+	  	}
+
+	  	this.number++;
+	  	console.log(this.number);
+	  	this.optionNumber='';
+	  	this.resultOfQuiz();
+  	}
+  	else
+  	{
+  		return;
+  	}
+  }
+  resultOfQuiz()
+  {
+  	if(this.number == this.totalQuestion)
+  	{
+  		this.showResult = false;
+  	}
   }
 
 }

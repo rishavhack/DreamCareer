@@ -12,19 +12,46 @@
 
 </ion-header>
 
+<style>
 
-<ion-content >
-<ion-card *ngFor="let ques of questionList">
-<div *ngIf="ques.number==number">
-  <ion-card-content>
-  {{ques.question}}
-  </ion-card-content>
-  <ion-list radio-group [(ngModel)]="relationship">
-	  <ion-item *ngFor="let opt of ques.option">
-	    <ion-label>{{opt}}</ion-label>
-	    <ion-radio  [value]="opt"></ion-radio>
+ion-content{
+  background : url('img/29.jpg') center / cover ;
+}
+
+</style>
+<ion-content *ngIf="showResult === true">
+<div *ngFor="let ques of questionList">
+  <div *ngIf="ques.number==number">
+    <ion-card style="height: 200px;padding: 10px;color: red;font-size: 20px;border-radius: 25px;background: bisque;">
+     {{ques.question}}
+     </ion-card>
+  <ion-list radio-group [(ngModel)]="optionNumber" padding>
+	  <ion-item style="background: transparent;border: 2px solid red;border-radius: 32px;color: red;    font-size: 11px;margin-bottom: 5px;">
+	    <ion-label style="overflow: initial; white-space: initial;">{{ ques.option[0] }}</ion-label>
+	    <ion-radio  value="0"></ion-radio>
 	  </ion-item>
+    <ion-item style="background: transparent;border: 2px solid red;border-radius: 32px;color: red;    font-size: 11px;margin-bottom: 5px;">
+      <ion-label style="overflow: initial; white-space: initial;">{{ ques.option[1] }}</ion-label>
+      <ion-radio  value="1"></ion-radio>
+    </ion-item>
+    <ion-item style="background: transparent;border: 2px solid red;border-radius: 32px;color: red;    font-size: 11px;margin-bottom: 5px;">
+      <ion-label style="overflow: initial; white-space: initial;">{{ ques.option[2] }}</ion-label>
+      <ion-radio  value="2"></ion-radio>
+    </ion-item>
+    <ion-item style="background: transparent;border: 2px solid red;border-radius: 32px;color: red;    font-size: 11px;margin-bottom: 5px;">
+      <ion-label style="overflow: initial; white-space: initial;">{{ ques.option[3] }}</ion-label>
+      <ion-radio  value="3"></ion-radio>
+    </ion-item>
   </ion-list>
   </div>
-</ion-card>
+</div>
+<button ion-button block color="danger" style="margin-top: -25px;" (click)="nextQuestion(optionNumber)">Next<ion-icon ios="ios-arrow-dropright" md="md-arrow-dropright"></ion-icon></button>
 </ion-content>
+<ion-content *ngIf="showResult === false" padding>
+
+<h1>Total Question = {{ number }};</h1>
+<h1>Right Question Tempt = {{rightAnswer}};</h1>
+<h1>Wrong Question Tempt = {{wrongAnswer}};</h1>
+
+</ion-content>
+
