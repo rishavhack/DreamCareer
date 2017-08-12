@@ -4,12 +4,42 @@
       <ion-title>Menu</ion-title>
     </ion-toolbar>
   </ion-header>
+<style>
 
-  <ion-content color="danger">
+ion-content{
+  background : url('img/a.jpg') center / cover ;
+}
+
+</style>
+
+  <ion-content >
     <ion-list>
-      <button menuClose ion-item>
-        Hello
-      </button>
+    <button menuClose ion-item (click)="navigateToHome()"  style="background: transparent;">
+      &nbsp;<ion-icon name="home" style="font-size: 25px;"></ion-icon> <span style=" margin-left: 20px;">Home</span>
+    </button>
+    <button menuClose ion-item  (click)="navigateToChat()"  style="background: transparent;">
+      &nbsp;<ion-icon name="chatboxes" style="font-size: 25px;"></ion-icon> <span style=" margin-left: 20px;">ChatBot</span>
+    </button>
+     <a href="mailto:sapnasrivatava.arya@gmail.com?subject=Feedback for DreamCareer Application" class="no-style-link" style="text-decoration: none; color: black;">
+    <button menuClose ion-item  style="background: transparent;">
+      &nbsp;<ion-icon name="at" style="font-size: 25px;"></ion-icon> <span style=" margin-left: 20px;">FeedBack</span>
+    </button>
+    </a>
+    <button menuClose ion-item style="background: transparent;">
+      &nbsp;<ion-icon name="share" style="font-size: 25px;"></ion-icon> <span style=" margin-left: 20px;">Share</span>
+    </button>
+    <button menuClose ion-item  style="background: transparent;">
+      &nbsp;<ion-icon name="help" style="font-size: 25px;"></ion-icon> <span style=" margin-left: 20px;">FAQ</span>
+    </button>
+    <button menuClose ion-item style="background: transparent;">
+      &nbsp;<ion-icon name="people" style="font-size: 25px;"></ion-icon> <span style=" margin-left: 20px;">About Us</span>
+    </button>
+    <button menuClose ion-item style="background: transparent;">
+      &nbsp;<ion-icon name="appstore" style="font-size: 25px;"></ion-icon> <span style=" margin-left: 20px;">Rate Us</span>
+    </button>
+    <button menuClose ion-item (click)="navigateToLoginPage()" style="background: transparent;">
+      &nbsp;<ion-icon name="power" style="font-size: 25px;"></ion-icon> <span style=" margin-left: 20px;">LogOut</span>
+    </button>
     </ion-list>
   </ion-content>
 

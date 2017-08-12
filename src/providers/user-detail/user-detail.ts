@@ -22,14 +22,13 @@ export class UserDetailProvider {
     this.uidKey = firebase.auth().currentUser.uid;
     this.emailFire = firebase.auth().currentUser.email;
   }
-  submitDetail(first,last,phoneNumber,email)
+  submitDetail(first,last,phoneNumber)
   {
     return this.userProfile.child(this.uidKey).update({
           name:{
                 first : first,
                 last: last,
                 },
-          email:email,
           phoneNumber:phoneNumber,
         });
   }

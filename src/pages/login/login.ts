@@ -3,6 +3,7 @@ import { AlertController,IonicPage, NavController, NavParams, ModalController,Lo
 import { HomePage } from '../home/home';
 import { UserServiceProvider } from '../../providers/user-service/user-service'; 
 import { RegisterPage } from '../register/register';
+import { TabsPage } from '../tabs/tabs';
 /**
  * Generated class for the LoginPage page.
  *
@@ -38,7 +39,7 @@ export class LoginPage {
 
   loader.present(); 
   	this.usersService.loginUser(this.emailField, this.passwordField).then(authData=>{
-  		this.navCtrl.setRoot(HomePage);
+  		this.navCtrl.push(TabsPage);
       loader.dismiss();
   	},error=>{
   		let alert = this.alertCtrl.create({

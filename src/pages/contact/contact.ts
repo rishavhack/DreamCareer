@@ -23,7 +23,7 @@ export class ContactPage {
   }
 updateProfile()
 {
-	this.userDetail.submitDetail(this.firstName,this.lastName,this.phoneNumber,this.email).then(auth=>{
+	this.userDetail.submitDetail(this.firstName,this.lastName,this.phoneNumber).then(auth=>{
 		console.log("Succesful");
 		},error=>{
 		console.log(error);
@@ -38,7 +38,6 @@ updateProfile()
 
   loader.present(); 
  	this.userDetail.viewDetail(uid).then(auth=>{
-		this.email = auth.val().email;
 		this.firstName =auth.val().name.first;
 		this.lastName =auth.val().name.last;
 		this.phoneNumber = auth.val().phoneNumber;
@@ -64,7 +63,7 @@ updateProfile()
 	 this.photoUrl = 'data:image/jpeg;base64,' + imageData;
 	 this.upload();
 	}, (err) => {
-	 console.log(err);
+	 console.log(err)
 	});
  }
  upload() {
@@ -74,14 +73,13 @@ updateProfile()
 
     // Create a reference to 'images/todays-date.jpg'
     const imageRef = storageRef.child(`images/${filename}.jpg`);
-
-    imageRef.putString(this.photoUrl, firebase.storage.StringFormat.DATA_URL).then((snapshot)=> {
-     let loader = this.loadingCtrl.create({
+    let loader = this.loadingCtrl.create({
       spinner: 'bubbles',
-    content: 'Uploading Photo Please Wait...'
+    content: 'Uploading Image Wait...'
     }); 
 
   loader.present(); 
+    imageRef.putString(this.photoUrl, firebase.storage.StringFormat.DATA_URL).then((snapshot)=> {
      this.photoUrl = snapshot.downloadURL;
      this.updateProfilePic(this.photoUrl);
      console.log("Successful");
