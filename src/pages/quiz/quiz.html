@@ -19,7 +19,8 @@ ion-content{
 }
 
 </style>
-<ion-content *ngIf="showResult === true">
+<ion-content>
+<div  *ngIf="showResult === true">
 <div *ngFor="let ques of questionList">
   <div *ngIf="ques.number==number">
     <ion-card style="height: 200px;padding: 10px;color: red;font-size: 20px;border-radius: 25px;background: bisque;">
@@ -46,12 +47,30 @@ ion-content{
   </div>
 </div>
 <button ion-button block color="danger" style="margin-top: -25px;" (click)="nextQuestion(optionNumber)">Next<ion-icon ios="ios-arrow-dropright" md="md-arrow-dropright"></ion-icon></button>
-</ion-content>
-<ion-content *ngIf="showResult === false" padding>
+</div>
+<div *ngIf="showResult === false">
+  <div style="font-size: 150px;text-align: center;color: red;">
+    <ion-icon name="trophy"></ion-icon>
+  </div>
+<ion-card>
+  <ion-card-header style="font-size: 30px;color: red;border-bottom: 3px solid red;border-radius: 21px;text-align: center">
+    Score
+  </ion-card-header>
+  <ion-list>
+    <ion-item>
+      Total Question = {{ number }};
+    </ion-item>
+    <ion-item>
+      Right Question Tempt = {{rightAnswer}};
+    </ion-item>
+    <ion-item>
+      Wrong Question Tempt = {{wrongAnswer}};
+    </ion-item>
+  </ion-list>
 
-<h1>Total Question = {{ number }};</h1>
-<h1>Right Question Tempt = {{rightAnswer}};</h1>
-<h1>Wrong Question Tempt = {{wrongAnswer}};</h1>
-
+  </ion-card>
+  <button ion-button block color="danger" (click)="submitResult()">Submit</button>
+</div>
 </ion-content>
+
 

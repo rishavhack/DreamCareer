@@ -23,10 +23,18 @@ export class ContactPage {
   }
 updateProfile()
 {
+let loader = this.loadingCtrl.create({
+      spinner: 'bubbles',
+    content: 'Loading Please Wait...'
+    }); 
+
+  loader.present(); 
 	this.userDetail.submitDetail(this.firstName,this.lastName,this.phoneNumber).then(auth=>{
 		console.log("Succesful");
+		loader.dismiss();
 		},error=>{
 		console.log(error);
+		loader.dismiss();
 	});
 }
  displayView(uid)
@@ -44,6 +52,7 @@ updateProfile()
 		this.photoUrl =auth.val().photo;
 		  loader.dismiss();
 		},error=>{
+			console.log("hi");
 		console.log(error);
 		  loader.dismiss();
 	});

@@ -43,5 +43,11 @@ export class UserDetailProvider {
           photo:url,
         });
   }
+  /*saveResult(sub,perc)
+  {
+    return this.userProfile.child(this.uidKey).push({
+          subject : sub, percentage : perc},
+        );
+  }*/
 
 }

@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams,LoadingController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams,LoadingController,App } from 'ionic-angular';
 import * as firebase from 'firebase';
 import { Http } from '@angular/http';
+import { UserDetailProvider } from '../../providers/user-detail/user-detail';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
+import { TabsPage } from '../tabs/tabs';
 
 /**
  * Generated class for the QuizPage page.
@@ -15,6 +17,7 @@ import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/databa
 @Component({
   selector: 'page-quiz',
   templateUrl: 'quiz.html',
+  providers:[UserDetailProvider]
 })
 export class QuizPage {
 	public subjectName :any;
@@ -26,7 +29,7 @@ export class QuizPage {
 	public totalQuestion :any;
 	public showResult = true;
 
-  constructor(public loadingController: LoadingController,public navCtrl: NavController, public navParams: NavParams,public http: Http,db: AngularFireDatabase) {
+  constructor(public app: App,private userDetail : UserDetailProvider,public loadingController: LoadingController,public navCtrl: NavController, public navParams: NavParams,public http: Http,db: AngularFireDatabase) {
   		this.number = 0;
   		let loader = this.loadingController.create({
       spinner: 'bubbles',
@@ -80,6 +83,18 @@ export class QuizPage {
   	{
   		this.showResult = false;
   	}
+  }
+  submitResult()
+  {
+
+  	/*let perCentage = this.rightAnswer/this.totalQuestion * 100;
+  	console.log(perCentage);
+  	this.userDetail.saveResult(this.subjectName,perCentage).then(auth=>{
+		console.log("Succesful");
+		},error=>{
+		console.log(error);
+	});*/let nav = this.app.getRootNav(); 
+	nav.setRoot(TabsPage, {tabIndex: 2});
   }
 
 }

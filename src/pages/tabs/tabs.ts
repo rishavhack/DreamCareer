@@ -19,17 +19,17 @@ export class TabsPage {
   constructor() {
 
   }
-    /*swipeEvent(e) 
+    swipeEvent(e) 
   {
-   
-      if(e.direction == 2)
+   console.log(e);
+     /* if(e.direction == 2)
       {
           this.app.getRootNav().getActiveChildNav().select(selectedTab + 1);        
       }
       else if(e.direction == 4)
       {
           this.app.getRootNav().getActiveChildNav().select(selectedTab - 1);        
-      }
-    }*/
+      }*/
+    }
 
 }

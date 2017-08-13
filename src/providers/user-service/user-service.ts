@@ -59,6 +59,13 @@ export class UserServiceProvider {
   			//successful login,create user profile
   			this.userProfile.child(authenticatedUser.uid).set({
   				email:email,
+          photo : 'http://media-assets-02.thedrum.com/cache/images/thedrum-prod/s3-news-tmp-111981-newdc_logo--default--890.png',
+          username :'',
+          name:{
+                first : '',
+                last: '',
+                },
+          phoneNumber : '',
 
   			});
   		})
