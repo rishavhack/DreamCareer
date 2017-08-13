@@ -1,6 +1,6 @@
-<ion-tabs color="danger" (swipe)="swipeEvent($event)">
-  <ion-tab [root]="tab1Root" tabTitle="Home" tabIcon="home" ></ion-tab>
-  <ion-tab [root]="tab2Root" tabTitle="Quiz" tabIcon="book"></ion-tab>
-  <ion-tab [root]="tab3Root" tabTitle="News Feed" tabIcon="information"></ion-tab>
-  <ion-tab [root]="tab4Root" tabTitle="Profile" tabIcon="person"></ion-tab>
+<ion-tabs color="danger" (swipe)="swipeEvent($event)" #myTabs>
+  <ion-tab (ionSelect)="sendIndex()" [root]="tab1Root" tabTitle="Home" tabIcon="home" ></ion-tab>
+  <ion-tab (ionSelect)="sendIndex1()" [root]="tab2Root" tabTitle="Quiz" tabIcon="book"></ion-tab>
+  <ion-tab  (ionSelect)="sendIndex2()"[root]="tab3Root" tabTitle="News Feed" tabIcon="information"></ion-tab>
+  <ion-tab (ionSelect)="sendIndex3()" [root]="tab4Root" tabTitle="Profile" tabIcon="person"></ion-tab>
 </ion-tabs>
