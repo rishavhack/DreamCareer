@@ -15,8 +15,7 @@ ion-content{
 
 <ion-content padding>
 <div text-center style="margin-top: 50px;">
-	<ion-icon ios="ios-heart" md="md-heart" style="font-size: 100px; color: red;"></ion-icon>
-	<!-- <ion-icon ios="ios-heart" md="md-heart" ></ion-icon> -->
+	<img src="img/dclogo.png"/>
 	<h1 style="color:red;">DreamCareer</h1>
 </div>
 <ion-list>
@@ -28,8 +27,11 @@ ion-content{
     <ion-input type="password" value="" style="border : 1px solid white;border-radius: 15px;" [(ngModel)]="passwordField"></ion-input>
 </ion-list>
 <div style="text-align: center;">
-<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" (click)="submitLogin()"><ion-icon ios="ios-log-in" md="md-log-in" style="margin-right: 5px;"></ion-icon>Login In</button>
-<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" (click)="signUserUp()"><ion-icon name="ionitron" style="margin-right: 5px;"></ion-icon>Sign Up</button>
+<button ion-button color="danger"  (click)="submitLogin()"><ion-icon ios="ios-log-in" md="md-log-in" style="margin-right: 5px;"></ion-icon>Login In</button>
+<!-- <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" (click)="submitLogin()"><ion-icon ios="ios-log-in" md="md-log-in" style="margin-right: 5px;"></ion-icon>Login In</button> -->
+
+<button ion-button color="danger"  (click)="signUserUp()"><ion-icon name="ionitron" style="margin-right: 5px;"></ion-icon>Sign Up</button>
+<!-- <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" (click)="signUserUp()"><ion-icon name="ionitron" style="margin-right: 5px;"></ion-icon>Sign Up</button> -->
 </div>
 <button ion-button full outline (click)="googleSignIn()" style="border-color: red; color: red;"><ion-icon ios="logo-googleplus" md="logo-googleplus"></ion-icon>Sign in with Google</button>
 <br>

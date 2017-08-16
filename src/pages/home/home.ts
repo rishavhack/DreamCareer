@@ -12,10 +12,15 @@ import { Http } from '@angular/http';
 })
 export class HomePage {
   public newfeed :any;
+  public callLogout
 
   constructor(public navCtrl: NavController, public navParams: NavParams,private usersService : UserServiceProvider,
       public appCtrl: App,public http: Http) {
-    
+    this.callLogout = this.navParams.get('text');
+    if(this.callLogout == 'logout')
+    {
+      this.logUserOut();
+    }
 
   }
    logUserOut()

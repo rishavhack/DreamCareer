@@ -31,7 +31,6 @@ export class NewslistPage {
     {
     	this.http.get('https://newsapi.org/v1/articles?source=the-times-of-india&sortBy=latest&apiKey='+key).map(res => res.json()).subscribe(data => {
         this.newfeed=data.articles;
-        console.log(this.newfeed);
         loader.dismiss();
    	    });
     }
@@ -39,7 +38,6 @@ export class NewslistPage {
     {
     	this.http.get('https://newsapi.org/v1/articles?source=the-hindu&sortBy=latest&apiKey='+key).map(res => res.json()).subscribe(data => {
         this.newfeed=data.articles;
-        console.log(this.newfeed);
         loader.dismiss();
    	    });
     }
@@ -47,7 +45,6 @@ export class NewslistPage {
     {
     	this.http.get('https://newsapi.org/v1/articles?source=mtv-news&sortBy=latest&apiKey='+key).map(res => res.json()).subscribe(data => {
         this.newfeed=data.articles;
-        console.log(this.newfeed);
         loader.dismiss();
    	    });
     }
@@ -55,7 +52,6 @@ export class NewslistPage {
     {
     	this.http.get('https://newsapi.org/v1/articles?source=hacker-news&sortBy=latest&apiKey='+key).map(res => res.json()).subscribe(data => {
         this.newfeed=data.articles;
-        console.log(this.newfeed);
         loader.dismiss();
    	    });
     }
@@ -63,7 +59,6 @@ export class NewslistPage {
     {
     	this.http.get('https://newsapi.org/v1/articles?source=espn&sortBy=top&apiKey='+key).map(res => res.json()).subscribe(data => {
         this.newfeed=data.articles;
-        console.log(this.newfeed);
         loader.dismiss();
    	    });
     }

@@ -4,11 +4,6 @@
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title>Home</ion-title>
-    <ion-buttons end (click)="logUserOut()">
-    <button ion-button icon-only>
-      <ion-icon ios="ios-person" md="md-person"></ion-icon>
-    </button>
-    </ion-buttons>
   </ion-navbar>
 </ion-header>
 <style>
@@ -19,7 +14,7 @@ ion-content{
 
 </style>
 <ion-content>
-  <ion-slides loop="true" autoplay="2000" style="height: 155px;margin-top: -7px;" >
+  <ion-slides pager="true" loop="true" zoom="true" autoplay="3000" style="height: 155px;margin-top: -7px;">
 
         <ion-slide>
             <img src="img/2.jpg">

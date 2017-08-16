@@ -33,7 +33,7 @@ export class QuizPage {
   		this.number = 0;
   		let loader = this.loadingController.create({
       spinner: 'bubbles',
-    content: 'Loading Please Wait...'
+      content: 'Loading Please Wait...'
     });  
 
 	loader.present();
@@ -66,9 +66,7 @@ export class QuizPage {
 	  	{
 	  		this.wrongAnswer++;
 	  	}
-
 	  	this.number++;
-	  	console.log(this.number);
 	  	this.optionNumber='';
 	  	this.resultOfQuiz();
   	}

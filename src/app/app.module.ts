@@ -21,7 +21,8 @@ import { NewsPage } from '../pages/news/news';
 import { UserServiceProvider } from '../providers/user-service/user-service';
 import { ChatPage } from '../pages/chat/chat';
 import { AngularFireModule } from 'angularfire2';
- 
+import { AboutusPage } from '../pages/aboutus/aboutus';
+import { FaqPage } from '../pages/faq/faq';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { UserDetailProvider } from '../providers/user-detail/user-detail';
@@ -47,7 +48,9 @@ export const firebaseConfig = {
     ChatPage,
     QuizPage,
     NewsPage,
-    NewslistPage
+    NewslistPage,
+    AboutusPage,
+    FaqPage
   ],
   imports: [
     BrowserModule,
@@ -69,7 +72,9 @@ export const firebaseConfig = {
     ChatPage,
     QuizPage,
     NewsPage,
-    NewslistPage
+    NewslistPage,
+    AboutusPage,
+    FaqPage
   ],
   providers: [
     StatusBar,

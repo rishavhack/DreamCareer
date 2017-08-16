@@ -17,20 +17,110 @@
 ion-content{
 	background : url('img/chatImage.jpg') center / cover ;
 }
+.sections{
+           padding:10px;
+        }
+        .left{
+            text-align:left;
+        }
+        .right{
+            text-align: right;
+        }
+        .customborder{
+            border-radius:10px;
+            /*box-shadow:-10px -10px 20px 2px;*/
+        }
+        .chatarea{
+            height:450px;
+            padding-top: 5px;
+        }
+        .userlist{
+            background: #CCC;
+        }
+        .center{
+            text-align:center;
+        }
+        .medium-font{
+            font-size:12px;
+            font-weight: bold;
+        }
+        .friend-list-div{
+            height:250px;
+            overflow:scroll;
+        }
+        .friend-list{
+        }
+        .dp{
+            max-width: 50%;
+        }
+        .auto{
+            margin: auto;
+        }
+        .chat-messages{
+          /*  background: white;*/
+        }
+        .chat-input{
+            position: absolute;
+            bottom: 0;
+            left:0;
+            padding: 20px;
+        }
+        .chat-left{
+            text-align: left;
+            float: left;
+        }
+        .chat-right{
+            text-align: right;
+            clear: both;
+            float: right;
+        }
+        .chat-right .chat-content{
+             background: blanchedalmond;
+             border-top-right-radius: 0em;
+
+        }
+        .chat-left .chat-content{
+            background: orangered;
+            color:white;
+            border-top-left-radius: 0em;
+        }
+        .chat-content{
+            padding: 20px;
+            border-radius: 30px;
+            text-align: center;
+        }
+        .thumb{
+            width:50px;
+            border-radius: 50%;
+        }
+        .chat-left .user-chat-pic{
+            text-align: right;
+            padding: 0;
+        }
+        .chat-right .user-chat-pic{
+            text-align: left;
+            padding: 0;
+        }
+        .chat-gap{
+            margin-bottom:5px;
+        }
 
 
 </style>
-<ion-content padding>
-<!-- <div class="row" >
+<ion-content>
+<div style="text-align: center;" *ngIf="image === true">
+<img src="img/chatbot.png" style="width: 50%;" />
+</div>
+ <div class="row" >
     <div class="col-xs-12 sections chatarea">
         <div class="chat-messages">
-           <div *ngFor="let c in chats" class="chat-gap">
-                <div class="chat-left row" *ngIf="user!=c.user">
+           <div *ngFor="let c of chats" class="chat-gap">
+                <div class="chat-left row" *ngIf="c.num==0">
                     <div class="chat-content col-xs-4">
                         {{c.text}}
                     </div>
                 </div>
-                <div class="chat-right row" *ngIf="user==c.user">
+                <div class="chat-right row" *ngIf="c.num==1">
                     <div class="chat-content col-xs-4 col-xs-offset-6">
                         {{c.text}}
                     </div>
@@ -38,16 +128,22 @@ ion-content{
             </div>
         </div>
     </div>
+</div>
+<!-- <div *ngFor="let c of chats">
+
+  <div  *ngIf="c.num==1">
+	  <div style="border: 2px solid #fff6f6;padding: 10px 40px;background: palegoldenrod;border-radius: 25px;float: right;">
+	  			{{c.text}}
+	 </div> 
+  </div>
+  <br>
+  <div *ngIf="c.num==0" style="width: 174px;">
+	 <div  style="border: 2px solid #fff6f6;padding: 10px 40px;background: palegoldenrod;border-radius: 25px;float: left;">
+	  			{{c.text}}
+	 </div>
+  </div> 
+  <br>
 </div>  -->
-<div *ngFor="let c of chats">
-  
-	  <span *ngIf="chatNumber==1" style="border: 2px solid #fff6f6;padding: 10px 40px;background: palegoldenrod;border-radius: 25px;float: right;">
-	  			{{c}}
-	 </span > 
-	 <span *ngIf="chatNumber==0">
-	  			{{c}}
-	 </span> 
-</div> 
 
 </ion-content>
 <ion-footer>
