@@ -4,6 +4,8 @@ import { HomePage } from '../home/home';
 import { UserServiceProvider } from '../../providers/user-service/user-service'; 
 import { RegisterPage } from '../register/register';
 import { TabsPage } from '../tabs/tabs';
+import * as firebase from 'firebase';
+import { GooglePlus } from '@ionic-native/google-plus';
 /**
  * Generated class for the LoginPage page.
  *
@@ -23,7 +25,7 @@ export class LoginPage {
 	private users = [];
 	private usersList : any;
 
-  constructor(private toastCtrl : ToastController, private alertCtrl: AlertController, private loadingCtrl :LoadingController, public navCtrl: NavController, public navParams: NavParams, private modalCtrl : ModalController,private usersService : UserServiceProvider) {
+  constructor(public googleplus : GooglePlus,private toastCtrl : ToastController, private alertCtrl: AlertController, private loadingCtrl :LoadingController, public navCtrl: NavController, public navParams: NavParams, private modalCtrl : ModalController,private usersService : UserServiceProvider) {
   	
   }
 
@@ -64,16 +66,32 @@ export class LoginPage {
   	});
   	loader.present();
   }
-    googleSignIn()
+  googleSignIn()
   {
     this.usersService.googleSignInUser().then(()=>{
       let toast = this.toastCtrl.create({
         message : 'User account create successfully..',
-        duration :3000
+        duration :5000
       });
       toast.present();
     });
   }
+  /*googleSignIn()
+  {
+    this.googleplus.login({
+      'webClientId':'55436514958-o8dshbv8de80agj5ot7c9ojujqreegvh.apps.googleusercontent.com',
+      'offline':true
+    }).then(res=>{
+      return firebase.auth().signInWithCredential(firebase.auth.GoogleAuthProvider.credential(res.idToken))
+      .then(suc=>{
+        console.log(suc);
+        console.log("Succc")
+      }).catch(ns=>{
+        console.log("Not");
+        console.log(ns);
+      })
+    })
+  }*/
   showForgotPassword()
   {
     let prompt = this.alertCtrl.create({

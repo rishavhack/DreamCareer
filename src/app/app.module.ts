@@ -24,6 +24,7 @@ import { AngularFireModule } from 'angularfire2';
 import { AboutusPage } from '../pages/aboutus/aboutus';
 import { FaqPage } from '../pages/faq/faq';
 import { Camera, CameraOptions } from '@ionic-native/camera';
+import { GooglePlus } from '@ionic-native/google-plus';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { UserDetailProvider } from '../providers/user-detail/user-detail';
 
@@ -82,7 +83,8 @@ export const firebaseConfig = {
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     UserServiceProvider,
     UserDetailProvider,
-    Camera
+    Camera,
+    GooglePlus
   ],
   
 })

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 import * as firebase from 'firebase';
+import { GooglePlus } from '@ionic-native/google-plus';
 
 /*
   Generated class for the UserServiceProvider provider.
@@ -17,12 +18,12 @@ export class UserServiceProvider {
   public uidKey :any
   public emailFire :any
 
-  constructor(public http: Http) {
+  constructor(public http: Http,public googleplus : GooglePlus) {
   	this.fireAuth = firebase.auth();
   	this.userProfile = firebase.database().ref('users');
    
   }
-  googleSignInUser()
+  /*googleSignInUser()
   {
     var provider = new firebase.auth.GoogleAuthProvider();
     provider.addScope('https://www.googleapis.com/auth/plus.login');
@@ -48,6 +49,35 @@ export class UserServiceProvider {
     }).catch(function(error){
       console.log(error);
     });
+  }*/
+  googleSignInUser()
+  {
+    
+    return this.googleplus.login({
+      'webClientId':'55436514958-o8dshbv8de80agj5ot7c9ojujqreegvh.apps.googleusercontent.com',
+      'offline':true
+    }).then(res=>{
+       firebase.auth().signInWithCredential(firebase.auth.GoogleAuthProvider.credential(res.idToken))
+      .then(suc=>{
+
+        console.log(suc);
+        console.log(suc.uid);
+      var res = suc.displayName.split(" ");
+       this.userProfile.child(suc.uid).set({
+          email : suc.email,
+          photo : suc.photoURL,
+          username : suc.displayName,
+          name:{
+                first : res[0],
+                last: res[1],
+                },
+        });
+      
+      }).catch(ns=>{
+        console.log("Not");
+        console.log(ns);
+      })
+    })
   }
   signUpUser(email :string , password:string)
   {
